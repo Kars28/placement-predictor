@@ -1,40 +1,44 @@
-<h3 align="center">Placement Prediction Web Application</h3>
+# Placement Predictor
 
----
-## Overview:
-<p>The Online Placement Prediction System, where student can estimate their chances of securing on-campus placements, considering several parameters such as Stream, CGPA, Internship, Backlogs and more. Students can estimate their results within few clicks by submitting short form. The website usage the machine learning model to analyze the input parameters. The dataset downloaded from the www.Kaggle.com for testing.
-</p>
+A web application that estimates a student's chance of being placed in on-campus recruitment, based on details such as stream, CGPA, internships and backlogs. The student fills in a short form and a trained machine learning model returns the prediction.
 
-## Features:
-- By leveraging the Random Forest Classification technique, the model has been train to analyze the input parameteers and makes predictions ragarding the outcome.
-- The Machine Learing Model (Random Forest Classification) achieved 94% precision and 88% accuracy.
+Team project, Bachelor of Engineering (Computer Engineering), A. P. Shah Institute of Technology.
 
-## Tech Stack:
-- HTML, CSS, Python.
-- Flask framework.
-- Jupyter Notebook.
+## How it works
 
-## Screenshots:
-### Home page:
-User have to fill this form.
-![Screenshot (99)](https://github.com/Avi8010/Placement_Predictor/assets/124759114/61855759-9501-4d6e-977f-72fcb0951737)
+1. A Random Forest classifier is trained on a public placement dataset from Kaggle (`collegePlace.csv`).
+2. The trained model is saved and loaded by a Flask app.
+3. The user enters their details in a form, and the app returns the predicted placement outcome.
 
-### Result Page:
-User redirected to the result page after submitting form.
-![Screenshot (101)](https://github.com/Avi8010/Placement_Predictor/assets/124759114/efebf129-17f4-40d5-9829-7cefee5ed14c)
+An SVM model was also trained for comparison (`svm.ipynb`).
 
-## Usage:
-Steps:
-1. Clone Project
-```
-git clone https://github.com/akshaykoganur/placement_prediction.git
-```
-2. Installing dependancies
-```
+## Results
+
+The Random Forest model reached 88% accuracy and 94% precision on held-out data.
+
+## Tech stack
+
+Python, scikit-learn, pandas, Flask, HTML, CSS, Jupyter Notebook
+
+## Project structure
+
+| File | Purpose |
+| --- | --- |
+| `collegePlace.ipynb` | Data exploration and Random Forest training |
+| `svm.ipynb` | SVM model for comparison |
+| `model.py` | Model training script |
+| `app.py` | Flask web app |
+| `templates/` | Input form and result pages |
+| `static/` | CSS and images |
+| `ml_miniproject_report.pdf` | Project report |
+
+## Run it locally
+
+```bash
+git clone https://github.com/Kars28/placement-predictor.git
+cd placement-predictor
 pip install -r requirements.txt
-```
-3. Run
-```
 python app.py
 ```
 
+Then open http://127.0.0.1:5000 in your browser.
